@@ -91,7 +91,7 @@ function updateClock() {
   }).format(now);
 
   liveTime.textContent = formatted;
-  footerYear.textContent = `Our Office | ${now.getFullYear()}`;
+  footerYear.textContent = `Our Office Employees | ${now.getFullYear()}`;
 }
 
 /* ------------------------------
@@ -99,7 +99,7 @@ function updateClock() {
 ------------------------------ */
 function generateWish() {
   const employeeName = employeeInput.value.trim() || "Team";
-  const companyName = companyInput.value.trim() || "Our Office";
+  const companyName = companyInput.value.trim() || "Our Office Employees";
 
   companyLine.textContent = `Wishing all employees of ${companyName} success, health, and continued growth.`;
   personalLine.textContent = `Dear ${employeeName}, thank you for your dedication and professionalism.`;
