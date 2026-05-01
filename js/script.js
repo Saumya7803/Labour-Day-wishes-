@@ -1,14 +1,14 @@
 ﻿/* ------------------------------
    Storage keys and constants
 ------------------------------ */
-const MODE_KEY = "labour_day_mode";
-const THEME_KEY = "labour_day_theme";
-const MUSIC_KEY = "labour_day_music";
+const MODE_KEY = "employee_appreciation_mode";
+const THEME_KEY = "employee_appreciation_theme";
+const MUSIC_KEY = "employee_appreciation_music";
 
 const quotes = [
   "Hard work is the foundation of success.",
   "Every worker builds the future.",
-  "Respect labour, respect life.",
+  "Respect effort, respect people.",
   "Great teams are built by dedicated people.",
   "Effort today creates opportunity tomorrow."
 ];
@@ -139,7 +139,7 @@ async function downloadCardAsImage() {
     });
 
     const link = document.createElement("a");
-    link.download = "labour-day-wish-card.png";
+    link.download = "employee-appreciation-wish-card.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
   } catch (error) {
@@ -157,7 +157,7 @@ async function downloadCardAsImage() {
 function getSharePayload() {
   const text = `${companyLine.textContent} ${personalLine.textContent}`;
   return {
-    title: "International Labour Day Wishes",
+    title: "Office Employee Appreciation Wishes",
     text,
     url: window.location.href
   };
@@ -276,12 +276,12 @@ function initializeMusicState() {
 ------------------------------ */
 function initializeTyping() {
   if (typeof Typed === "undefined") {
-    document.getElementById("typed-title").textContent = "Happy Labour Day";
+    document.getElementById("typed-title").textContent = "Employee Appreciation Day";
     return;
   }
 
   new Typed("#typed-title", {
-    strings: ["Happy Labour Day", "Honoring Every Employee", "Celebrating Hard Work"],
+    strings: ["Employee Appreciation Day", "Honoring Every Employee", "Celebrating Hard Work"],
     typeSpeed: 52,
     backSpeed: 32,
     backDelay: 1400,

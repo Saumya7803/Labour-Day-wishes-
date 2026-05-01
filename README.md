@@ -1,6 +1,6 @@
-﻿# Labour Day Wishes Web App
+﻿# Employee Appreciation Wishes Web App
 
-A modern, interactive, and professional-grade International Labour Day (May 1) web application for office employee appreciation.
+A modern, interactive, and professional-grade web application for office employee appreciation.
 
 ## Features
 
@@ -11,7 +11,7 @@ A modern, interactive, and professional-grade International Labour Day (May 1) w
 - Confetti celebration on load with replay button
 - Personalized wishes (employee name and company name)
 - Rotating motivational quotes every 5 seconds
-- Labour Day slogan badges
+- Workplace appreciation slogan badges
 - Download wish card as PNG using `html2canvas`
 - Share actions for WhatsApp, LinkedIn, and Twitter
 - Web Share API support via Quick Share button
