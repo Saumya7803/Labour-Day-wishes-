@@ -1,146 +1,163 @@
-﻿<!DOCTYPE html>
-<html lang="en" data-theme="corporate" data-mode="light">
+<!DOCTYPE html>
+<html lang="en" data-theme="corporate-blue" data-mode="auto" data-template="card">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>International Labour Day Wishes | Office Employee Appreciation</title>
-  <meta
-    name="description"
-    content="A premium International Labour Day wishes web app to celebrate office employees with personalization, quotes, and sharing."
-  />
+  <meta name="description" content="Professional International Workers Day Wishes app with personalization, sharing, and export for any company." />
+  <meta name="theme-color" content="#1655d1" />
+  <title>International Workers Day Wishes | Professional Employee Experience</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icon-192.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Animated ambient background -->
-  <div class="bg-wrapper" aria-hidden="true">
-    <span class="bg-shape shape-a"></span>
-    <span class="bg-shape shape-b"></span>
-    <span class="bg-shape shape-c"></span>
+  <div class="app-bg" aria-hidden="true">
+    <span class="bg-blob blob-1"></span>
+    <span class="bg-blob blob-2"></span>
+    <span class="bg-blob blob-3"></span>
   </div>
 
-  <main class="app-shell">
-    <!-- Header and control bar -->
-    <header class="topbar">
+  <main class="app" id="app-root">
+    <header class="topbar glass">
       <div class="brand">
-        <p class="eyebrow">May 1 | International Labour Day</p>
-        <h1 class="brand-title">Office Employee Wishes</h1>
+        <p class="eyebrow" data-i18n="eyebrow">May 1 | International Workers Day Wishes</p>
+        <h1 class="brand-title"><span id="typed-title"></span></h1>
       </div>
 
-      <div class="top-controls">
-        <button id="mode-toggle" class="btn btn-ghost" type="button" aria-label="Toggle dark and light mode">
-          <span class="icon" id="mode-icon" aria-hidden="true">MOON</span>
-          <span id="mode-label">Dark Mode</span>
+      <div class="top-actions">
+        <button id="install-app-btn" class="btn ghost hidden" type="button" data-i18n="installApp">Install App</button>
+        <button id="theme-mode-toggle" class="btn ghost" type="button" data-ripple>
+          <span id="mode-pill-text">Mode: Auto</span>
         </button>
-        <button id="music-toggle" class="btn btn-ghost" type="button" aria-label="Toggle background music">
-          <span class="icon" aria-hidden="true">MUSIC</span>
-          <span id="music-label">Play Music</span>
-        </button>
-        <button id="confetti-replay" class="btn btn-ghost" type="button">
-          Replay Confetti
-        </button>
+        <button id="music-toggle" class="btn ghost" type="button" data-ripple data-i18n="playMusic">Play Music</button>
+        <button id="replay-confetti" class="btn ghost" type="button" data-ripple data-i18n="replayConfetti">Replay Confetti</button>
       </div>
     </header>
 
-    <section class="status-row">
-      <div class="live-time-card">
-        <p class="status-title">Live Date & Time</p>
-        <p id="live-time" class="status-value">Loading time...</p>
-      </div>
-
-      <div class="theme-switcher" role="group" aria-label="Theme switcher">
-        <p class="status-title">Theme</p>
-        <div class="theme-buttons">
-          <button class="theme-btn active" data-theme="corporate" type="button">Corporate Blue</button>
-          <button class="theme-btn" data-theme="dark-elegant" type="button">Dark Elegant</button>
-          <button class="theme-btn" data-theme="festive" type="button">Gradient Festive</button>
+    <section class="meta-grid">
+      <article class="glass stat-card">
+        <p class="stat-label" data-i18n="liveDateTime">Live Date & Time</p>
+        <p id="live-datetime" class="stat-value">Loading...</p>
+      </article>
+      <article class="glass stat-card">
+        <p class="stat-label" data-i18n="engagement">Engagement</p>
+        <p class="stat-value"><span id="wish-count">0</span> <span data-i18n="wishesGenerated">wishes generated</span></p>
+        <p class="stat-sub"><span id="download-count">0</span> <span data-i18n="downloads">downloads</span></p>
+      </article>
+      <article class="glass stat-card">
+        <p class="stat-label" data-i18n="language">Language</p>
+        <div class="chips">
+          <button class="chip active" data-lang="en" type="button">English</button>
+          <button class="chip" data-lang="hi" type="button">Hindi</button>
+          <button class="chip" data-lang="hinglish" type="button">Hinglish</button>
         </div>
-      </div>
+      </article>
     </section>
 
-    <section class="layout-grid">
-      <!-- Main greeting card -->
-      <article id="wish-card" class="wish-card">
-        <p class="card-tag">Employee Appreciation Message</p>
-        <h2 class="typed-heading"><span id="typed-title"></span></h2>
-        <p id="company-line" class="company-line">
-          Wishing all employees of Our Office success, health, and continued growth.
-        </p>
-        <p class="body-copy">
-          Today, we honor the dedication, resilience, and excellence that every team member brings to our workplace.
-          Your effort is the foundation of our progress and the strength of our future.
-        </p>
-        <p id="personal-line" class="personal-line">
-          Dear Team, thank you for your commitment and professionalism.
-        </p>
-        <p id="signoff-line" class="signoff">With respect and gratitude, Management Team</p>
+    <section class="control-grid">
+      <article class="glass panel">
+        <h2 data-i18n="personalization">Advanced Personalization</h2>
+        <div class="field-grid">
+          <label for="employee-name" data-i18n="employeeName">Employee Name</label>
+          <input id="employee-name" type="text" placeholder="Enter employee name" />
+          <label for="company-name" data-i18n="companyName">Company Name</label>
+          <input id="company-name" type="text" placeholder="Enter company name" />
+          <label for="employee-role" data-i18n="roleOptional">Role (optional)</label>
+          <input id="employee-role" type="text" placeholder="Example: Operations Manager" />
+        </div>
       </article>
 
-      <!-- Interactive controls panel -->
-      <aside class="control-panel">
-        <section class="panel-block">
-          <h3>Personalize Your Wish</h3>
-          <label for="employee-name">Employee Name</label>
-          <input id="employee-name" type="text" placeholder="Enter employee name" />
-          <label for="company-name">Company Name</label>
-          <input id="company-name" type="text" placeholder="Enter company name" />
-          <button id="generate-wish" class="btn btn-primary" type="button">Generate Wish</button>
+      <article class="glass panel">
+        <h2 data-i18n="smartGenerator">Smart Wish Generator</h2>
+        <div class="field-grid">
+          <label for="tone-select" data-i18n="chooseTone">Choose Tone</label>
+          <select id="tone-select">
+            <option value="formal">Formal</option>
+            <option value="friendly">Friendly</option>
+            <option value="motivational">Motivational</option>
+            <option value="corporate">Corporate</option>
+          </select>
+        </div>
+        <div class="button-row">
+          <button id="generate-wish" class="btn primary" type="button" data-ripple data-i18n="generateWish">Generate Wish</button>
+          <button id="speak-wish" class="btn ghost" type="button" data-ripple data-i18n="speakWish">Speak Wish</button>
+        </div>
+      </article>
+
+      <article class="glass panel">
+        <h2 data-i18n="themeAndLayout">Theme & Template</h2>
+        <p class="panel-note" data-i18n="themeLabel">Theme</p>
+        <div class="chips">
+          <button class="chip active" data-theme="corporate-blue" type="button">Corporate Blue</button>
+          <button class="chip" data-theme="dark-elegant" type="button">Dark Elegant</button>
+          <button class="chip" data-theme="gradient-festive" type="button">Gradient Festive</button>
+          <button class="chip" data-theme="minimal-white" type="button">Minimal White</button>
+        </div>
+        <p class="panel-note" data-i18n="templateLabel">Template</p>
+        <div class="chips">
+          <button class="chip active" data-template-switch="card" type="button" data-i18n="templateCard">Card View</button>
+          <button class="chip" data-template-switch="minimal" type="button" data-i18n="templateMinimal">Minimal View</button>
+          <button class="chip" data-template-switch="festive" type="button" data-i18n="templateFestive">Festive View</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="experience-grid">
+      <article id="wish-card" class="glass wish-card">
+        <p class="wish-tag" data-i18n="employeeAppreciation">Employee Appreciation Message</p>
+        <h2 id="wish-title" data-i18n="workersDayWishesHeading">International Workers Day Wishes</h2>
+        <p id="wish-company-line">Wishing all employees of Your Company success, health, and continued growth.</p>
+        <p id="wish-main-line">Your dedication powers our progress and shapes our future with excellence every day.</p>
+        <p id="wish-personal-line">Dear Team, thank you for your commitment and professionalism.</p>
+        <p id="wish-signoff">With respect and gratitude, Management Team</p>
+      </article>
+
+      <aside class="glass side-panel">
+        <section class="quote-box">
+          <h3 data-i18n="quoteTitle">Motivational Thought</h3>
+          <p id="quote-text">Hard work is the foundation of success.</p>
+          <button id="copy-quote" class="btn ghost small" type="button" data-ripple data-i18n="copyQuote">Copy Quote</button>
         </section>
 
-        <section class="panel-block">
-          <h3>Motivational Thought</h3>
-          <p id="quote-text" class="quote-text">Hard work is the foundation of success.</p>
+        <section class="slogan-box">
+          <h3 data-i18n="sloganTitle">International Workers Day Slogans</h3>
+          <div class="tag-cloud" id="slogan-tags"></div>
         </section>
 
-        <section class="panel-block">
-          <h3>Labour Day Slogans</h3>
-          <div class="badge-wrap">
-            <span class="badge">Dignity of Labour</span>
-            <span class="badge">Work with Pride</span>
-            <span class="badge">Respect Every Worker</span>
-            <span class="badge">Build Together, Grow Together</span>
-          </div>
-        </section>
-
-        <section class="panel-block">
-          <h3>Actions</h3>
-          <div class="action-buttons">
-            <button id="download-card" class="btn btn-primary" type="button">Download Card</button>
-            <button id="native-share" class="btn btn-ghost" type="button">Quick Share</button>
+        <section class="action-box">
+          <h3 data-i18n="actions">Actions</h3>
+          <div class="button-row stack">
+            <button id="download-image" class="btn primary" type="button" data-ripple data-i18n="downloadCard">Download Card (PNG)</button>
+            <button id="share-native" class="btn ghost" type="button" data-ripple data-i18n="quickShare">Quick Share</button>
+            <button id="download-mini-video" class="btn ghost" type="button" data-ripple data-i18n="downloadMiniVideo">Download Mini Frames</button>
           </div>
           <div class="share-grid">
-            <button class="btn btn-share" data-network="whatsapp" type="button">WhatsApp</button>
-            <button class="btn btn-share" data-network="linkedin" type="button">LinkedIn</button>
-            <button class="btn btn-share" data-network="twitter" type="button">Twitter</button>
+            <button class="btn share" data-network="whatsapp" type="button" data-ripple>WhatsApp</button>
+            <button class="btn share" data-network="linkedin" type="button" data-ripple>LinkedIn</button>
+            <button class="btn share" data-network="twitter" type="button" data-ripple>Twitter</button>
           </div>
         </section>
       </aside>
     </section>
   </main>
 
-  <!-- Audio source for optional background music -->
-  <audio id="bg-music" loop preload="none">
+  <footer class="site-footer">
+    <p id="footer-year">International Workers Day Wishes</p>
+    <p>Professional template for all companies</p>
+    <a href="#" aria-label="Open source template">Open Source Template</a>
+  </footer>
+
+  <audio id="bg-music" preload="none" loop>
     <source src="assets/soft-instrumental.mp3" type="audio/mpeg" />
     <source src="https://samplelib.com/lib/preview/mp3/sample-12s.mp3" type="audio/mpeg" />
   </audio>
 
-  <footer class="site-footer">
-    <p id="footer-year">Our Office</p>
-    <p>Made with &#10084; by Saumya Chaurasia</p>
-    <a class="github-link" href="https://github.com/Saumya7803" target="_blank" rel="noreferrer">
-      GitHub Profile
-    </a>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script src="js/script.js" type="module"></script>
 </body>
 </html>
-
