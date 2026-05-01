@@ -107,18 +107,17 @@ async function captureFrames() {
 
   for (let frame = 0; frame < totalFrames; frame += 1) {
     if (frame === 30) {
-      await page.fill("#employee-name", "Team Member");
-      await page.fill("#company-name", "Apex Global");
-      await page.fill("#employee-role", "Operations Manager");
+      await page.fill("#employee-name", "Saumya");
+      await page.fill("#company-name", "Saumya Office Group");
       await page.click("#generate-wish");
     }
 
     if (frame === 60) {
-      await page.click("#theme-mode-toggle");
+      await page.click("#mode-toggle");
     }
 
     if (frame === 90) {
-      await page.click('[data-theme="gradient-festive"]');
+      await page.click('[data-theme="festive"]');
     }
 
     if (frame === 120) {
@@ -126,16 +125,16 @@ async function captureFrames() {
     }
 
     if (frame === 150) {
-      await page.click('[data-theme="corporate-blue"]');
-      await page.click("#theme-mode-toggle");
+      await page.click('[data-theme="corporate"]');
+      await page.click("#mode-toggle");
     }
 
     if (frame === 180) {
-      await page.click("#replay-confetti");
+      await page.click("#confetti-replay");
     }
 
     if (frame === 210) {
-      await page.locator(".side-panel").scrollIntoViewIfNeeded();
+      await page.locator(".control-panel").scrollIntoViewIfNeeded();
     }
 
     const framePath = path.join(framesDir, `frame-${String(frame).padStart(4, "0")}.png`);
